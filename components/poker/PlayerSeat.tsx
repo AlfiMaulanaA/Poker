@@ -74,7 +74,7 @@ export function PlayerSeat({
             </div>
           ))
         ) : (
-          <div className="h-9 w-12 text-[10px] text-slate-500 font-display flex items-center justify-center border border-dashed border-slate-700/50 rounded-lg bg-slate-950/40">
+          <div className="h-9 w-12 text-[10px] text-slate-400 font-display flex items-center justify-center border border-dashed border-slate-300 rounded-lg bg-white/80">
             [ Hidden ]
           </div>
         )}
@@ -84,39 +84,39 @@ export function PlayerSeat({
       <div
         className={`relative w-28 sm:w-32 rounded-2xl p-1.5 border transition-all duration-300 flex flex-col items-center text-center shadow-xl ${
           isWinner
-            ? 'bg-gradient-to-b from-amber-900 via-amber-950 to-slate-900 border-amber-400 ring-2 ring-amber-400 shadow-[0_0_25px_rgba(245,158,11,0.8)] scale-105'
+            ? 'bg-gradient-to-b from-amber-100 via-amber-50 to-white border-amber-500 ring-4 ring-amber-400/80 shadow-[0_0_25px_rgba(245,158,11,0.6)] scale-105'
             : isCurrentTurn
-              ? 'bg-gradient-to-b from-cyan-950 via-slate-900 to-slate-950 border-cyan-400 ring-2 ring-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.5)]'
+              ? 'bg-gradient-to-b from-blue-50 via-white to-cyan-50 border-blue-500 ring-4 ring-blue-400/70 shadow-[0_0_20px_rgba(59,130,246,0.4)]'
               : player.isYou
-                ? 'bg-gradient-to-b from-slate-800 to-slate-900 border-emerald-400/80'
-                : 'bg-slate-900/90 border-slate-700/90'
+                ? 'bg-white border-2 border-blue-400'
+                : 'bg-white border-2 border-slate-200'
         }`}
       >
         {/* Turn Timer Glow Line */}
         {isCurrentTurn && (
-          <div className="absolute inset-0 rounded-2xl border-2 border-cyan-400 animate-pulse pointer-events-none" />
+          <div className="absolute inset-0 rounded-2xl border-2 border-blue-500 animate-pulse pointer-events-none" />
         )}
 
         {/* Avatar & Name */}
         <div className="flex items-center gap-1.5 w-full px-1">
           <span className="text-base sm:text-xl select-none">{player.avatar}</span>
-          <span className="truncate text-xs font-black text-slate-100 font-display flex-1 text-left tracking-tight">
+          <span className="truncate text-xs font-black text-slate-800 font-display flex-1 text-left tracking-tight">
             {player.name}
           </span>
         </div>
 
         {/* Chips Balance */}
-        <div className="mt-1 w-full rounded-xl bg-slate-950/90 py-0.5 px-1.5 text-center border border-slate-800 flex items-center justify-center gap-1">
-          <span className="text-amber-400 text-xs">🪙</span>
-          <span className="text-xs font-black text-amber-300 font-display tracking-tight">
+        <div className="mt-1 w-full rounded-xl bg-amber-50 py-0.5 px-1.5 text-center border border-amber-200 flex items-center justify-center gap-1">
+          <span className="text-amber-600 text-xs">🪙</span>
+          <span className="text-xs font-black text-amber-900 font-display tracking-tight">
             ${player.chips.toLocaleString()}
           </span>
         </div>
 
         {/* Turn Timer Badge if active turn */}
         {isCurrentTurn && (
-          <div className="mt-1 text-[10px] font-extrabold text-cyan-300 flex items-center gap-1">
-            <span className="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+          <div className="mt-1 text-[10px] font-black text-blue-600 flex items-center gap-1">
+            <span className="inline-block w-2 h-2 rounded-full bg-blue-500 animate-ping" />
             <span>⏱ {turnTimeRemaining}s</span>
           </div>
         )}
@@ -124,7 +124,7 @@ export function PlayerSeat({
 
       {/* Current Bet Chip Badge below seat */}
       {player.currentBet > 0 && (
-        <div className="mt-1 px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-400/60 text-amber-300 text-[10px] font-black shadow-md font-display">
+        <div className="mt-1 px-2.5 py-0.5 rounded-full bg-amber-400 border border-amber-500 text-slate-950 text-[10px] font-black shadow-md font-display">
           Bet: ${player.currentBet.toLocaleString()}
         </div>
       )}

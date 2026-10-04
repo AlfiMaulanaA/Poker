@@ -13,13 +13,13 @@ export function PotDisplay({ pot, sidePots = [] }: PotDisplayProps) {
 
   return (
     <div className="flex flex-col items-center justify-center gap-1 select-none">
-      <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/30 to-amber-500/20 border border-amber-400/40 text-amber-300 shadow-md backdrop-blur-sm">
-        <Coins className="h-4 w-4 animate-bounce text-amber-400" />
-        <span className="font-display text-xs font-bold uppercase tracking-wider text-amber-200">
+      <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400 border-2 border-amber-300 text-slate-950 shadow-xl">
+        <Coins className="h-4 w-4 animate-bounce text-slate-950" />
+        <span className="font-display text-xs font-black uppercase tracking-wider text-slate-900">
           TOTAL POT:
         </span>
-        <span className="font-display text-lg font-black tracking-tight text-amber-400">
-          {pot.toLocaleString()}
+        <span className="font-display text-lg font-black tracking-tight text-slate-950">
+          ${pot.toLocaleString()}
         </span>
       </div>
 
@@ -28,9 +28,9 @@ export function PotDisplay({ pot, sidePots = [] }: PotDisplayProps) {
           {activeSidePots.map((sp, idx) => (
             <span
               key={idx}
-              className="px-2 py-0.5 rounded-md bg-purple-950/60 border border-purple-500/30 text-purple-300 font-semibold"
+              className="px-2 py-0.5 rounded-md bg-purple-100 border border-purple-300 text-purple-900 font-extrabold"
             >
-              Side {idx + 1}: {sp.amount.toLocaleString()}
+              Side {idx + 1}: ${sp.amount.toLocaleString()}
             </span>
           ))}
         </div>

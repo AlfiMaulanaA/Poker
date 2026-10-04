@@ -12,27 +12,6 @@ type PlayingCardProps = {
 };
 
 export function PlayingCard({ card, faceDown = false, highlight = false, size = 'md', fourColor = false }: PlayingCardProps) {
-  if (faceDown || !card) {
-    const sizeClasses =
-      size === 'sm'
-        ? 'w-9 h-12 text-xs'
-        : size === 'lg'
-          ? 'w-16 h-24 text-base'
-          : 'w-12 h-16 text-sm';
-
-    return (
-      <div
-        className={`${sizeClasses} relative rounded-lg border-2 border-slate-700 bg-gradient-to-br from-indigo-900 via-slate-900 to-cyan-900 shadow-md flex items-center justify-center transition-transform hover:scale-105 select-none`}
-      >
-        <div className="absolute inset-1 rounded border border-cyan-500/20 bg-[radial-gradient(#22d3ee_1px,transparent_1px)] [background-size:6px_6px] opacity-40" />
-        <span className="font-display font-black text-cyan-400/70 opacity-75">N</span>
-      </div>
-    );
-  }
-
-  const colorMap = fourColor ? SUIT_4COLOR : SUIT_COLORS;
-  const suitColorClass = colorMap[card.suit];
-
   const sizeClasses =
     size === 'sm'
       ? 'w-9 h-12 text-xs p-0.5'
@@ -40,12 +19,30 @@ export function PlayingCard({ card, faceDown = false, highlight = false, size = 
         ? 'w-16 h-24 text-base p-1.5'
         : 'w-12 h-16 text-sm p-1';
 
+  if (faceDown || !card) {
+    return (
+      <div
+        className={`${sizeClasses} relative rounded-xl border-2 border-white bg-white shadow-md flex items-center justify-center transition-transform hover:scale-105 select-none p-1`}
+      >
+        <div className="w-full h-full rounded-lg bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 border border-blue-400/40 flex items-center justify-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:6px_6px] opacity-30" />
+          <span className="font-display font-black text-white text-xs sm:text-sm tracking-widest drop-shadow">
+            POKER
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  const colorMap = fourColor ? SUIT_4COLOR : SUIT_COLORS;
+  const suitColorClass = colorMap[card.suit];
+
   return (
     <div
-      className={`${sizeClasses} relative rounded-lg border bg-white dark:bg-slate-900 ${
+      className={`${sizeClasses} relative rounded-xl border-2 bg-white ${
         highlight
-          ? 'border-amber-400 ring-2 ring-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.6)] scale-105 z-10'
-          : 'border-slate-300 dark:border-slate-700 shadow-md'
+          ? 'border-amber-400 ring-4 ring-amber-400/80 shadow-[0_0_20px_rgba(245,158,11,0.8)] scale-105 z-10'
+          : 'border-slate-200 shadow-md'
       } flex flex-col justify-between select-none font-bold transition-all duration-200`}
     >
       {/* Top Left Rank & Suit */}

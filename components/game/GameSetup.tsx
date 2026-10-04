@@ -32,29 +32,34 @@ export function GameSetup({ mode, onStart }: GameSetupProps) {
   };
 
   return (
-    <div className="mx-auto w-full max-w-lg p-6 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl text-white">
-      <h2 className="font-display text-2xl font-black text-cyan-400 tracking-tight">
-        {mode === 'bot' ? 'Practice Table vs AI' : 'Local Table'}
-      </h2>
-      <p className="mt-1 text-xs text-slate-400 font-medium">
-        Configure your Texas Hold’em table parameters.
-      </p>
+    <div className="mx-auto w-full max-w-lg card p-8 text-slate-800">
+      <div className="flex items-center gap-3 mb-2">
+        <img src="/app-logo.jpeg" alt="Logo" className="w-10 h-10 rounded-2xl object-cover border border-slate-200 shadow-sm" />
+        <div>
+          <h2 className="font-display text-2xl font-black text-slate-900 tracking-tight">
+            {mode === 'bot' ? 'Practice Table vs AI' : 'Local Table'}
+          </h2>
+          <p className="text-xs text-slate-500 font-medium">
+            Configure your Texas Hold’em table parameters.
+          </p>
+        </div>
+      </div>
 
       <div className="mt-6 flex flex-col gap-5">
         {/* Bot Count */}
         <div>
-          <label className="block text-xs font-bold text-slate-300 font-display uppercase tracking-wider mb-2">
-            AI Opponents: <span className="text-cyan-400 font-black">{botCount} Bots</span> (Total {botCount + 1} players)
+          <label className="block text-xs font-black text-slate-600 font-display uppercase tracking-wider mb-2">
+            AI Opponents: <span className="text-blue-600 font-black">{botCount} Bots</span> (Total {botCount + 1} players)
           </label>
           <div className="grid grid-cols-5 gap-2">
             {[1, 2, 3, 4, 5].map((num) => (
               <button
                 key={num}
                 type="button"
-                className={`py-2 rounded-xl font-display font-bold text-sm transition-all ${
+                className={`py-2.5 rounded-2xl font-display font-black text-sm transition-all ${
                   botCount === num
-                    ? 'bg-cyan-500 text-slate-950 font-black ring-2 ring-cyan-400 shadow-glow'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 scale-105'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
                 onClick={() => setBotCount(num)}
               >
@@ -66,7 +71,7 @@ export function GameSetup({ mode, onStart }: GameSetupProps) {
 
         {/* AI Difficulty */}
         <div>
-          <label className="block text-xs font-bold text-slate-300 font-display uppercase tracking-wider mb-2">
+          <label className="block text-xs font-black text-slate-600 font-display uppercase tracking-wider mb-2">
             AI Difficulty Level
           </label>
           <div className="grid grid-cols-3 gap-2">
@@ -74,10 +79,10 @@ export function GameSetup({ mode, onStart }: GameSetupProps) {
               <button
                 key={level}
                 type="button"
-                className={`py-2 rounded-xl font-display font-bold text-xs uppercase tracking-wide transition-all ${
+                className={`py-2.5 rounded-2xl font-display font-black text-xs uppercase tracking-wide transition-all ${
                   difficulty === level
-                    ? 'bg-purple-600 text-white font-black ring-2 ring-purple-400 shadow-md'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    ? 'bg-purple-600 text-white shadow-md shadow-purple-500/25 scale-105'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
                 onClick={() => setDifficulty(level)}
               >
@@ -89,7 +94,7 @@ export function GameSetup({ mode, onStart }: GameSetupProps) {
 
         {/* Starting Chips */}
         <div>
-          <label className="block text-xs font-bold text-slate-300 font-display uppercase tracking-wider mb-2">
+          <label className="block text-xs font-black text-slate-600 font-display uppercase tracking-wider mb-2">
             Starting Virtual Chips
           </label>
           <div className="grid grid-cols-3 gap-2">
@@ -97,10 +102,10 @@ export function GameSetup({ mode, onStart }: GameSetupProps) {
               <button
                 key={chips}
                 type="button"
-                className={`py-2 rounded-xl font-display font-bold text-xs transition-all ${
+                className={`py-2.5 rounded-2xl font-display font-black text-xs transition-all ${
                   startingChips === chips
-                    ? 'bg-amber-500 text-slate-950 font-black ring-2 ring-amber-400 shadow-md'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/25 scale-105'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
                 onClick={() => setStartingChips(chips)}
               >
@@ -112,7 +117,7 @@ export function GameSetup({ mode, onStart }: GameSetupProps) {
 
         {/* Blinds */}
         <div>
-          <label className="block text-xs font-bold text-slate-300 font-display uppercase tracking-wider mb-2">
+          <label className="block text-xs font-black text-slate-600 font-display uppercase tracking-wider mb-2">
             Blinds (Small / Big)
           </label>
           <div className="grid grid-cols-3 gap-2">
@@ -120,10 +125,10 @@ export function GameSetup({ mode, onStart }: GameSetupProps) {
               <button
                 key={b}
                 type="button"
-                className={`py-2 rounded-xl font-display font-bold text-xs transition-all ${
+                className={`py-2.5 rounded-2xl font-display font-black text-xs transition-all ${
                   blindLevel === b
-                    ? 'bg-blue-600 text-white font-black ring-2 ring-blue-400 shadow-md'
-                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/25 scale-105'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
                 onClick={() => setBlindLevel(b)}
               >
@@ -135,7 +140,7 @@ export function GameSetup({ mode, onStart }: GameSetupProps) {
 
         <button
           type="button"
-          className="btn-primary w-full mt-2 !py-3 text-base font-extrabold uppercase tracking-wide shadow-lg shadow-cyan-500/20"
+          className="btn-primary w-full mt-2 !py-3.5 text-base font-extrabold uppercase tracking-wide shadow-lg shadow-blue-500/25"
           onClick={handleStart}
         >
           Deal Cards & Start Match ➔

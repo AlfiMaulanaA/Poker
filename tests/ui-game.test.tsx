@@ -24,7 +24,7 @@ afterEach(() => {
 describe('Neon Poker Homepage', () => {
   it('renders hero title and mode selection cards', () => {
     renderWithProviders(<HomePage />);
-    expect(screen.getByText('NEON POKER')).toBeInTheDocument();
+    expect(screen.getByText('POKER CLUB')).toBeInTheDocument();
     expect(screen.getByText('PLAY YOUR HAND. READ THE TABLE.')).toBeInTheDocument();
     expect(screen.getByText('Practice vs AI')).toBeInTheDocument();
     expect(screen.getByText('Local Table')).toBeInTheDocument();

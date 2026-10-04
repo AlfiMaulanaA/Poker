@@ -4,7 +4,7 @@ import { Header } from '@/components/layout/Header';
 import { SettingsProvider } from '@/components/settings/SettingsProvider';
 
 export const metadata: Metadata = {
-  title: 'Neon Poker — Texas Hold’em Online & Offline',
+  title: 'Poker App — Texas Hold’em Online & Offline',
   description:
     'Play Texas Hold’em with friends or practice against smart AI opponents using virtual chips.',
   manifest: '/manifest.webmanifest',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     apple: '/icon.jpeg'
   },
   openGraph: {
-    title: 'Neon Poker — Texas Hold’em Online & Offline',
+    title: 'Poker App — Texas Hold’em Online & Offline',
     description: 'Play Texas Hold’em against AI or challenge friends with virtual chips.',
     type: 'website'
   }
@@ -24,13 +24,13 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: '#07111F'
+  themeColor: '#F8FAFC'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <body className="min-h-screen flex flex-col bg-[#07111F] text-slate-100 selection:bg-cyan-500 selection:text-slate-950">
+    <html lang="en">
+      <body className="min-h-screen flex flex-col bg-[#F8FAFC] text-slate-800 selection:bg-blue-500 selection:text-white">
         <SettingsProvider>
           <Header />
           <main className="flex-1 flex flex-col">{children}</main>

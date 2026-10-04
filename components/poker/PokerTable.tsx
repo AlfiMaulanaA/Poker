@@ -34,10 +34,10 @@ export function PokerTable({ state, turnTimeRemaining = 20, fourColor = false }:
   };
 
   return (
-    <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] max-w-4xl mx-auto rounded-[100px] sm:rounded-[140px] border-[12px] sm:border-[16px] border-[#1C2C24] bg-gradient-to-b from-[#0F4C3A] via-[#093528] to-[#041B14] shadow-[0_20px_50px_rgba(0,0,0,0.8),_inset_0_0_60px_rgba(34,211,238,0.15)] p-4 flex flex-col items-center justify-center select-none my-2">
+    <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] max-w-4xl mx-auto rounded-[100px] sm:rounded-[140px] border-[12px] sm:border-[16px] border-[#B45309] bg-gradient-to-b from-[#15803D] via-[#166534] to-[#14532D] shadow-[0_20px_50px_rgba(30,41,59,0.25),_inset_0_0_60px_rgba(255,255,255,0.15)] p-4 flex flex-col items-center justify-center select-none my-2">
       {/* Glossy Table Felt Outer Glow Ring */}
-      <div className="absolute inset-3 rounded-[85px] sm:rounded-[125px] border-2 border-emerald-400/30 shadow-[inset_0_0_30px_rgba(16,185,129,0.2)] pointer-events-none" />
-      <div className="absolute inset-8 rounded-[70px] sm:rounded-[110px] border border-cyan-400/20 pointer-events-none" />
+      <div className="absolute inset-3 rounded-[85px] sm:rounded-[125px] border-2 border-emerald-300/40 shadow-[inset_0_0_30px_rgba(255,255,255,0.2)] pointer-events-none" />
+      <div className="absolute inset-8 rounded-[70px] sm:rounded-[110px] border border-amber-300/30 pointer-events-none" />
 
       {/* Center Table Content: Pot Display & Community Cards */}
       <div className="z-10 flex flex-col items-center gap-3 transform -translate-y-1">

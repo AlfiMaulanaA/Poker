@@ -15,14 +15,16 @@ export function Header() {
   ];
 
   return (
-    <header className="w-full bg-slate-900/90 border-b border-slate-800 backdrop-blur-md sticky top-0 z-40">
-      <div className="mx-auto max-w-6xl flex items-center justify-between px-4 py-3">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center font-display font-black text-slate-950 text-base shadow-glow group-hover:scale-105 transition-transform">
-            ♠
-          </div>
-          <span className="font-display font-black text-lg tracking-tight text-white group-hover:text-cyan-400 transition-colors">
-            NEON POKER
+    <header className="w-full bg-white/90 border-b border-slate-200/90 backdrop-blur-md sticky top-0 z-40 shadow-sm">
+      <div className="mx-auto max-w-6xl flex items-center justify-between px-4 py-2.5">
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <img
+            src="/app-logo.jpeg"
+            alt="Poker App Logo"
+            className="w-9 h-9 rounded-2xl object-cover shadow-md border border-slate-200 group-hover:scale-105 transition-transform"
+          />
+          <span className="font-display font-black text-xl tracking-tight text-slate-800 group-hover:text-blue-600 transition-colors">
+            POKER CLUB
           </span>
         </Link>
 
@@ -34,10 +36,10 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-1.5 rounded-xl font-display text-xs font-bold flex items-center gap-1.5 transition-all ${
+                className={`px-3 py-1.5 rounded-2xl font-display text-xs font-extrabold flex items-center gap-1.5 transition-all ${
                   active
-                    ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-400/40'
-                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
                 <Icon className="h-4 w-4" />

@@ -7,7 +7,7 @@ import { Plus, Users } from 'lucide-react';
 export default function OnlinePage() {
   const router = useRouter();
   const [roomCode, setRoomCode] = useState('');
-  const [roomName, setRoomName] = useState('Neon High Rollers');
+  const [roomName, setRoomName] = useState('High Rollers Club');
   const [maxPlayers, setMaxPlayers] = useState(6);
   const [startingChips, setStartingChips] = useState(2000);
 
@@ -27,12 +27,12 @@ export default function OnlinePage() {
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-4xl flex-col px-4 py-8 text-white">
+    <div className="mx-auto flex w-full max-w-4xl flex-col px-4 py-8 text-slate-800">
       <div className="text-center mb-8">
-        <h1 className="font-display text-3xl sm:text-4xl font-black text-cyan-400">
+        <h1 className="font-display text-3xl sm:text-4xl font-black text-slate-900">
           Online Poker Tables
         </h1>
-        <p className="mt-2 text-sm text-slate-400 max-w-md mx-auto">
+        <p className="mt-2 text-sm text-slate-600 max-w-md mx-auto font-medium">
           Create a private room with a custom room code or join your friends’ table instantly.
         </p>
       </div>
@@ -42,32 +42,32 @@ export default function OnlinePage() {
         <form onSubmit={handleCreateRoom} className="card p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Plus className="h-5 w-5 text-cyan-400" />
-              <h2 className="font-display text-lg font-bold text-white">Create Private Room</h2>
+              <Plus className="h-5 w-5 text-blue-600" />
+              <h2 className="font-display text-lg font-extrabold text-slate-800">Create Private Room</h2>
             </div>
 
             <div className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-300 font-display uppercase tracking-wider mb-1">
+                <label className="block text-xs font-black text-slate-600 font-display uppercase tracking-wider mb-1">
                   Room Name
                 </label>
                 <input
                   type="text"
                   value={roomName}
                   onChange={(e) => setRoomName(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-medium text-sm focus:outline-none focus:border-cyan-400"
+                  className="w-full px-3 py-2 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 font-medium text-sm focus:outline-none focus:border-blue-500"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-300 font-display uppercase tracking-wider mb-1">
+                <label className="block text-xs font-black text-slate-600 font-display uppercase tracking-wider mb-1">
                   Max Seats (2-8 Players)
                 </label>
                 <select
                   value={maxPlayers}
                   onChange={(e) => setMaxPlayers(Number(e.target.value))}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-medium text-sm focus:outline-none focus:border-cyan-400"
+                  className="w-full px-3 py-2 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 font-medium text-sm focus:outline-none focus:border-blue-500"
                 >
                   {[2, 3, 4, 5, 6, 7, 8].map((n) => (
                     <option key={n} value={n}>
@@ -78,13 +78,13 @@ export default function OnlinePage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-300 font-display uppercase tracking-wider mb-1">
+                <label className="block text-xs font-black text-slate-600 font-display uppercase tracking-wider mb-1">
                   Starting Virtual Chips
                 </label>
                 <select
                   value={startingChips}
                   onChange={(e) => setStartingChips(Number(e.target.value))}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-medium text-sm focus:outline-none focus:border-cyan-400"
+                  className="w-full px-3 py-2 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 font-medium text-sm focus:outline-none focus:border-blue-500"
                 >
                   <option value={1000}>$1,000</option>
                   <option value={2000}>$2,000</option>
@@ -94,7 +94,7 @@ export default function OnlinePage() {
             </div>
           </div>
 
-          <button type="submit" className="btn-primary w-full mt-6 !py-3 text-sm font-extrabold uppercase">
+          <button type="submit" className="btn-primary w-full mt-6 !py-3.5 text-sm font-extrabold uppercase shadow-lg shadow-blue-500/25">
             Create Table & Generate Code ➔
           </button>
         </form>
@@ -103,16 +103,16 @@ export default function OnlinePage() {
         <form onSubmit={handleJoinRoom} className="card p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Users className="h-5 w-5 text-purple-400" />
-              <h2 className="font-display text-lg font-bold text-white">Join Table by Code</h2>
+              <Users className="h-5 w-5 text-purple-600" />
+              <h2 className="font-display text-lg font-extrabold text-slate-800">Join Table by Code</h2>
             </div>
 
-            <p className="text-xs text-slate-400 mb-4">
-              Enter the 4 to 8 character room code shared by your host (e.g. <span className="font-mono text-cyan-400 font-bold">PKR-X7P9</span>).
+            <p className="text-xs text-slate-500 font-medium mb-4">
+              Enter the room code shared by your host (e.g. <span className="font-mono text-blue-600 font-bold">PKR-X7P9</span>).
             </p>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 font-display uppercase tracking-wider mb-1">
+              <label className="block text-xs font-black text-slate-600 font-display uppercase tracking-wider mb-1">
                 Room Code
               </label>
               <input
@@ -120,13 +120,13 @@ export default function OnlinePage() {
                 placeholder="e.g. PKR-X7P9"
                 value={roomCode}
                 onChange={(e) => setRoomCode(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono font-bold text-center tracking-widest text-lg uppercase focus:outline-none focus:border-purple-400"
+                className="w-full px-3 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 font-mono font-black text-center tracking-widest text-lg uppercase focus:outline-none focus:border-purple-500"
                 required
               />
             </div>
           </div>
 
-          <button type="submit" className="btn-secondary w-full mt-6 !py-3 text-sm font-extrabold uppercase bg-purple-600 hover:bg-purple-500 text-white border-purple-400">
+          <button type="submit" className="btn-secondary w-full mt-6 !py-3.5 text-sm font-extrabold uppercase bg-purple-600 hover:bg-purple-500 text-white border-purple-400">
             Join Room ➔
           </button>
         </form>

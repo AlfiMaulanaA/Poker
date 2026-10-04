@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --bg-main: #07111f;
-  --surface-main: #111c2e;
+  --bg-main: #f8fafc;
+  --surface-main: #ffffff;
 }
 
 body {
   background-color: var(--bg-main);
-  color: #f8fafc;
+  color: #1e293b;
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -31,22 +31,22 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-400 px-4 py-2.5 font-display text-sm font-extrabold text-slate-950 shadow-md transition-all hover:from-cyan-400 hover:to-cyan-300 hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer;
+    @apply relative inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 px-4 py-2.5 font-display text-sm font-extrabold text-white shadow-md transition-all hover:from-blue-500 hover:to-indigo-500 hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer border border-blue-400/40;
   }
 
   .btn-secondary {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-xl bg-slate-800 border border-slate-700 px-4 py-2.5 font-display text-sm font-bold text-slate-100 shadow-md transition-all hover:bg-slate-700 hover:border-slate-600 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer;
+    @apply relative inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-slate-200 px-4 py-2.5 font-display text-sm font-bold text-slate-800 shadow-sm transition-all hover:bg-slate-50 hover:border-slate-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer;
   }
 
   .btn-danger {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-xl bg-rose-600/90 border border-rose-500 px-4 py-2.5 font-display text-sm font-bold text-white shadow-md transition-all hover:bg-rose-500 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer;
+    @apply relative inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-rose-500 to-red-600 border border-rose-400 px-4 py-2.5 font-display text-sm font-bold text-white shadow-md transition-all hover:from-rose-400 hover:to-red-500 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer;
   }
 
   .btn-ghost {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 font-display text-sm font-bold text-slate-300 transition-all hover:bg-slate-800/80 hover:text-white select-none cursor-pointer;
+    @apply relative inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2.5 font-display text-sm font-bold text-slate-600 transition-all hover:bg-slate-100 hover:text-slate-900 select-none cursor-pointer;
   }
 
   .card {
-    @apply rounded-2xl bg-surface border border-surface-border p-4 shadow-xl;
+    @apply rounded-3xl bg-white border border-slate-200/90 p-5 shadow-card;
   }
 }
