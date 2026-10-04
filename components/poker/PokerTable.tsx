@@ -11,15 +11,15 @@ type PokerTableProps = {
   fourColor?: boolean;
 };
 
-// Seat placement offsets around the oval table (percentage top & left)
+// Precise percentages around the oval table so seats never overlap center cards or pot
 const SEAT_POSITIONS: Record<number, { top: string; left: string }> = {
-  0: { top: '82%', left: '50%' }, // Bottom Center (You)
-  1: { top: '70%', left: '15%' }, // Bottom Left
-  2: { top: '35%', left: '10%' }, // Top Left
-  3: { top: '12%', left: '30%' }, // Top Left-Center
-  4: { top: '12%', left: '70%' }, // Top Right-Center
-  5: { top: '35%', left: '90%' }, // Top Right
-  6: { top: '70%', left: '85%' }, // Bottom Right
+  0: { top: '88%', left: '50%' }, // Bottom Center (You)
+  1: { top: '74%', left: '16%' }, // Bottom Left
+  2: { top: '38%', left: '10%' }, // Middle Left
+  3: { top: '12%', left: '32%' }, // Top Left
+  4: { top: '12%', left: '68%' }, // Top Right
+  5: { top: '38%', left: '90%' }, // Middle Right
+  6: { top: '74%', left: '84%' }, // Bottom Right
   7: { top: '12%', left: '50%' }  // Top Center
 };
 
@@ -34,12 +34,13 @@ export function PokerTable({ state, turnTimeRemaining = 20, fourColor = false }:
   };
 
   return (
-    <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] max-w-4xl mx-auto rounded-[100px] sm:rounded-[140px] border-[12px] sm:border-[16px] border-[#1C2C24] bg-gradient-to-b from-poker-felt via-[#0A3024] to-[#062018] shadow-table overflow-hidden p-4 flex flex-col items-center justify-center select-none">
-      {/* Soft Table Felt Glow */}
-      <div className="absolute inset-4 rounded-[80px] sm:rounded-[120px] border border-poker-emerald/20 pointer-events-none" />
+    <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] max-w-4xl mx-auto rounded-[100px] sm:rounded-[140px] border-[12px] sm:border-[16px] border-[#1C2C24] bg-gradient-to-b from-[#0F4C3A] via-[#093528] to-[#041B14] shadow-[0_20px_50px_rgba(0,0,0,0.8),_inset_0_0_60px_rgba(34,211,238,0.15)] p-4 flex flex-col items-center justify-center select-none my-2">
+      {/* Glossy Table Felt Outer Glow Ring */}
+      <div className="absolute inset-3 rounded-[85px] sm:rounded-[125px] border-2 border-emerald-400/30 shadow-[inset_0_0_30px_rgba(16,185,129,0.2)] pointer-events-none" />
+      <div className="absolute inset-8 rounded-[70px] sm:rounded-[110px] border border-cyan-400/20 pointer-events-none" />
 
       {/* Center Table Content: Pot Display & Community Cards */}
-      <div className="z-10 flex flex-col items-center gap-3 transform -translate-y-2">
+      <div className="z-10 flex flex-col items-center gap-3 transform -translate-y-1">
         <PotDisplay pot={state.pot} sidePots={state.sidePots} />
         <CommunityCards
           cards={state.communityCards}
