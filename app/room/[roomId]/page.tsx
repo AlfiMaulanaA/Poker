@@ -1,15 +1,24 @@
 'use client';
 
-import { use, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { Check, Copy, Globe, Play, Users } from 'lucide-react';
 import { GameScreen } from '@/components/game/GameScreen';
 import { usePokerGame } from '@/hooks/usePokerGame';
+import { p2pManager } from '@/lib/socket/p2pRoom';
 
 export default function RoomPage({ params }: { params: Promise<{ roomId: string }> }) {
   const { roomId } = use(params);
   const [inGame, setInGame] = useState(false);
   const [copied, setCopied] = useState(false);
   const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    p2pManager.createRoom({ roomId });
+
+    return () => {
+      p2pManager.disconnect();
+    };
+  }, [roomId]);
 
   const api = usePokerGame({
     mode: 'online',
